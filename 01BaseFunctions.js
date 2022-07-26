@@ -64,13 +64,14 @@ function startRead(filePath, propertiesId, javaFillTag, sortOptionSheetId, dropI
     //     "$('.playableVideoDiv').on('hidden.bs.collapse', function () { $(this).find('iframe').attr('src', ''); $(this).removeClass('playing');});"+
     //     "$('.playableAudioDiv').on('hidden.bs.collapse', function () { $(this).find('audio').trigger('pause'); $(this).removeClass('playing');});";
 /*~~~~~THIS IS THE ORIGINAL~~~~~~~~~~~~~~~*/
-    topLogicScript = "document.getElementById('" + javaFillTag + "').innerHTML = '" + html[1] + "';" +
+  topLogicScript = "document.getElementById('" + javaFillTag + "').innerHTML = '" + html[1] + "';" +
         "function loadVideoIframe(playingDivId){"+
          "var playingDiv = document.getElementById('scriptIn'+playingDivId); if(!playingDiv.classList.contains('playing'))"+
         "{ playingDiv.classList.add('playing'); loadIframe('frame'+playingDivId);}}; function loadIframe(frameID) {" +
         "var frame = document.getElementById(frameID); frame.src = frame.dataset.src; };"+
         "$('.playableVideoDiv').on('hidden.bs.collapse', function () { $(this).find('iframe').attr('src', ''); $(this).removeClass('playing');});"+
-        "$('.playableAudioDiv').on('hidden.bs.collapse', function () { $(this).find('audio').trigger('pause'); $(this).removeClass('playing');});";
+        "$('.playableAudioDiv').on('hidden.bs.collapse', function () { $(this).find('audio').trigger('pause'); $(this).removeClass('playing');});"+
+        "$('.collapse').on('shown.bs.collapse',function(event){$(this).siblings('.panel-heading').find('.glyphicon-chevron-down:first').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');event.stopPropagation();}).on('hidden.bs.collapse',function(event){$(this).siblings('.panel-heading').find('.glyphicon-chevron-up:first').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');event.stopPropagation();});";
 
   
     // //This searches for and verifies that the file to write the script to exists and then writes the html
