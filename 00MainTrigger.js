@@ -21,18 +21,17 @@ function siteWideMain()
 
 function singlePageMain()
 {  
-   var time1 = new Date();//Starts recoreding of run time
-  
-  
+    var time1 = new Date();//Starts recoreding of run time
     //Variables to create unique ids for every dropdown on the page.
     var ids = {collapse:0 , accordion:1};  
 
-    //page to run
-    healthDistrict(ids);
-    // recordingsSchoolBoardDistrict(ids);
-    // minutesSchoolBoardDistrict(ids);
-    // policiesDistrict(ids);
-  
+    /**ONLY comment and uncomment these lines to change what resyncs**/
+      //page to run
+      healthDistrict(ids); 
+      // recordingsSchoolBoardDistrict(ids); //audio recordings for school board
+      // minutesSchoolBoardDistrict(ids); //meeting minutes for school board
+      // policiesDistrict(ids);
+    /***********************************************/
   //Records run time
   var time2 = new Date()
   var timeElapse = (time2.getTime() - time1.getTime())/1000;

@@ -148,7 +148,7 @@ function readFolders(parentFolder, ids, sortOptionSheetId) {
         ids.collapse++; //Increments the Unique ID
 
         //Creates the Html Code to start the folder drop down
-        htmlFill = '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">' +
+        htmlFill = '<div class="panel panel-default"><div class="panel-heading" data-parent="#accordion' + ids.accordion + '" data-toggle="collapse" href="#collapse' + ids.collapse + '"><h4 class="panel-title">' +
             '<a class="collapsible-item-title-link-icon pull-right" data-toggle="collapse" data-parent="#accordion' + ids.accordion +
             '" href="#collapse' + ids.collapse + '" role="button"><span class="glyphicon glyphicon-chevron-down"></span></a>' +
             '<a data-parent="#accordion' + ids.accordion + '" data-toggle="collapse" href="#collapse' + ids.collapse + '" class="dropDown">' +
@@ -440,11 +440,12 @@ function readFolders(parentFolder, ids, sortOptionSheetId) {
  * @return The Html code for the give file
  */
 function dropDownDoc(file, ids) {
-    var htmlDesktop = '<div class="panel panel-default"> <div class="panel-heading"> <h4 class="panel-title"><span onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)">' +
+    var htmlDesktop = '<div class="panel panel-default"> <div class="panel-heading" data-parent="#accordion' + ids.accordion + '" data-toggle="collapse" href="#collapse' +
+        ids.collapse + '" onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)"> <h4 class="panel-title">' +
         '<a class="collapsible-item-title-link-icon pull-right" data-parent="#accordion' + ids.accordion + '" data-toggle="collapse" href="#collapse' +
         ids.collapse + '" role="button"> <span class="glyphicon glyphicon-chevron-down"></span> </a>' +
         '<a data-parent="#accordion' + ids.accordion + '" data-toggle="collapse" href="#collapse' + ids.collapse + '">' + file.getName() +
-        '</a></h4></span></div><div class="collapse panel-collapse" id="collapse' + ids.collapse + '"><div class="panel-body dpdwnPB" ' +
+        '</a></h4></div><div class="collapse panel-collapse" id="collapse' + ids.collapse + '"><div class="panel-body dpdwnPB" ' +
         '><div data-oembed-url="' +
         'https://docs.google.com/document/d/' + file.getId() + '/pub?embedded=true' + '"><div class="dpdwnFrmCont">' +
         '<iframe  id="frame' + ids.collapse + '"  allowfullscreen="" data-src="' + 'https://docs.google.com/document/d/' + file.getId() + '/pub?embedded=true' + '" class="dpdwnIfrm" tabindex="-1"></iframe></div></div></div></div></div>';
@@ -464,10 +465,11 @@ function dropDownDoc(file, ids) {
  */
 function dropDownVideo(file,ids){
    file.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.VIEW);
-    var htmlDesktop = '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">' +
-        '<span onclick="loadVideoIframe(&apos;' + ids.collapse + '&apos;)"><a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
+    var htmlDesktop = '<div class="panel panel-default"><div data-parent="#accordion' + ids.accordion + '" data-toggle="collapse"' +
+        'href="#scriptIn' + ids.collapse + '" class="panel-heading" onclick="loadVideoIframe(&apos;' + ids.collapse + '&apos;)"><h4 class="panel-title">' +
+        '<a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
         'href="#scriptIn' + ids.collapse + '" role="button"><span class="glyphicon glyphicon-chevron-down"></span></a><a data-parent="#accordion' + ids.accordion +
-        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></span></h4></div><div class="collapse playableVideoDiv panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div>' +
+        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></h4></div><div class="collapse playableVideoDiv panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div>' +
         '<div class="dropDownVideoContainer"><iframe id="frame' + ids.collapse + '" allowfullscreen="" data-src="https://drive.google.com/uc?export=view&id=' + file.getId() +
         '"class="dropDownVideoIframe" tabindex="-1"></iframe></div></div></div></div></div>';
   
@@ -487,7 +489,8 @@ function dropDownAudio(file,ids){
    file.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.VIEW);
     
   
-    var htmlDesktop = '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">' +
+    var htmlDesktop = '<div class="panel panel-default"><div class="panel-heading" data-parent="#accordion' + ids.accordion + '" data-toggle="collapse"' +
+        'href="#scriptIn' + ids.collapse + '" ><h4 class="panel-title">' +
         '<a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
         'href="#scriptIn' + ids.collapse + '" role="button"><span class="glyphicon glyphicon-chevron-down"></span></a><a data-parent="#accordion' + ids.accordion +
         '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></h4></div><div class="collapse playableAudioDiv panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div>' +
@@ -511,15 +514,17 @@ function dropDownAudio(file,ids){
 function dropDownPdf(file, ids) {
     //Logger.log(file.getName());
     file.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.VIEW);
-    var htmlDesktop = '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">' +
-        '<span onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)"><a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
+    var htmlDesktop = '<div class="panel panel-default"><div class="panel-heading" onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)" data-parent="#accordion' + ids.accordion +
+        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" ><h4 class="panel-title">' +
+        '<a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
         'href="#scriptIn' + ids.collapse + '" role="button"><span class="glyphicon glyphicon-chevron-down"></span></a><a data-parent="#accordion' + ids.accordion +
-        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></span></h4></div><div class="collapse panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div>' +
+        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></h4></div><div class="collapse panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div>' +
         '<div class="dpdwnFrmCont"><iframe id="frame' + ids.collapse + '" allowfullscreen="" data-src="https://drive.google.com/uc?export=view&id=' + file.getId() +
         '"class="dpdwnIfrm" tabindex="-1"></iframe></div></div></div></div></div>';
 
-    var htmlMobile = '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">' +
-        '<span onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)"><a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
+    var htmlMobile = '<div class="panel panel-default"><div class="panel-heading" onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)" data-parent="#accordion' + ids.accordion +
+        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" ><h4 class="panel-title">' +
+        '<a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
         'href="#scriptIn' + ids.collapse + '" role="button"><span class="glyphicon glyphicon-chevron-down"></span></a><a data-parent="#accordion' + ids.accordion +
         '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></span><a href="https://drive.google.com/uc?export=view&id=' + file.getId() + '" download>' +
         '<img class="content-download docDownld" alt="Download" src="https://5il.co/lfva"/>' +
@@ -540,11 +545,12 @@ function dropDownPdf(file, ids) {
  * @return The Html code for the give file
  */
 function dropDownSheet(file, ids) {
-    var htmlDesktop = '<div class="panel panel-default"> <div class="panel-heading"> <h4 class="panel-title"><span onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)">' +
+    var htmlDesktop = '<div class="panel panel-default"> <div class="panel-heading" data-parent="#accordion' + ids.accordion + '" data-toggle="collapse" href="#collapse' +
+        ids.collapse + '" onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)"> <h4 class="panel-title">' +
         '<a class="collapsible-item-title-link-icon pull-right" data-parent="#accordion' + ids.accordion + '" data-toggle="collapse" href="#collapse' +
         ids.collapse + '" role="button"> <span class="glyphicon glyphicon-chevron-down"></span> </a>' +
         '<a data-parent="#accordion' + ids.accordion + '" data-toggle="collapse" href="#collapse' + ids.collapse + '">' + file.getName() +
-        '</a></h4></span></div><div class="collapse panel-collapse" id="collapse' + ids.collapse + '"><div class="panel-body dpdwnPB" ' +
+        '</a></h4></div><div class="collapse panel-collapse" id="collapse' + ids.collapse + '"><div class="panel-body dpdwnPB" ' +
         '><div data-oembed-url="' +
         'https://docs.google.com/spreadsheets/d/' + file.getId() + '/pub?embedded=true' + '"><div class="dpdwnFrmCont">' +
         '<iframe  id="frame' + ids.collapse + '"  allowfullscreen="" data-src="' + 'https://docs.google.com/spreadsheets/d/' + file.getId() + '/pub?embedded=true' + '" class="dpdwnIfrm" tabindex="-1"></iframe></div></div></div></div></div>';
@@ -893,7 +899,8 @@ function processLinks(file, importantList, sortList)
         }
 
         //Creates the html code for a link
-        htmlLink = '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a href="' + 
+        htmlLink = '<div class="panel panel-default"><div class="panel-heading" onclick=window.open("' + 
+    item.link + '","' + targetTab + '")><h4 class="panel-title"><a href="' + 
                     links[i][1] + '" role="button" target="' + targetTab + '"><img alt="" class="pull-right lnkimg" src="https://5il.co/lfv9"' +
                     '/>' + name + '</a></h4> </div> </div>';
 

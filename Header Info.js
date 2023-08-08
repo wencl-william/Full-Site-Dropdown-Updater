@@ -5,8 +5,7 @@
  * In script 01BaseFunctions is the backbone functionality of the script. This
  * is to make updating the logic behind the code easier sight wide. 
  * 
- * In script 01BaseFunctions is the backbone functionality of the script. This
- * is to make updating the logic behind the code easier sight wide. 
+ * 
  * 
  * 
  * In this script file 00MainTrigger is a call to the main function for each page. This 
