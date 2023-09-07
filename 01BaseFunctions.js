@@ -900,7 +900,7 @@ function processLinks(file, importantList, sortList)
 
         //Creates the html code for a link
         htmlLink = '<div class="panel panel-default"><div class="panel-heading" onclick=window.open("' + 
-    item.link + '","' + targetTab + '")><h4 class="panel-title"><a href="' + 
+    links[i][1] + '","' + targetTab + '")><h4 class="panel-title"><a href="' + 
                     links[i][1] + '" role="button" target="' + targetTab + '"><img alt="" class="pull-right lnkimg" src="https://5il.co/lfv9"' +
                     '/>' + name + '</a></h4> </div> </div>';
 
