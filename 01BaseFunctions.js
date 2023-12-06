@@ -526,7 +526,7 @@ function dropDownPdf(file, ids) {
         '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" ><h4 class="panel-title">' +
         '<a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
         'href="#scriptIn' + ids.collapse + '" role="button"><span class="glyphicon glyphicon-chevron-down"></span></a><a data-parent="#accordion' + ids.accordion +
-        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></span><a href="https://drive.google.com/uc?export=view&id=' + file.getId() + '" download>' +
+        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></span><a href="https://drive.google.com/uc?export=view&id=' + file.getId() + '" download  target="_blank" onclick="event.stopPropagation()">' +
         '<img class="content-download docDownld" alt="Download" src="https://5il.co/lfva"/>' +
         '</a></h4></div><div class="collapse panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div' +
         '><div class="dpdwnFrmCont">' +
