@@ -78,7 +78,7 @@ function startRead(filePath, propertiesId, javaFillTag, sortOptionSheetId, dropI
     // //Over whatever is in that file
     //docList = DriveApp.getFileById(propertiesId);
     //docList.setContent(topLogicScript);
-    ScriptProperties.setProperty(propertiesId, topLogicScript);
+    PropertiesService.getScriptProperties().setProperty(propertiesId, topLogicScript);
 }
 
 

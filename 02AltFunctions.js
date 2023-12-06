@@ -50,7 +50,7 @@ function startReadNoCheck(filePath, propertiesId, javaFillTag, sortOptionSheetId
     // docList = DriveApp.getFileById(propertiesId);
     // docList.setContent(topLogicScript);
 
-    ScriptProperties.setProperty(propertiesId, topLogicScript);
+    PropertiesService.getScriptProperties().setProperty(propertiesId, topLogicScript);
   }
 
 
