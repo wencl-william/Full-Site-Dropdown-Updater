@@ -21,7 +21,6 @@ function schoolBoardMain() {
 
     // //pagesto run
     recordingsSchoolBoardDistrict(ids);
-    minutesSchoolBoardDistrict(ids);
   
   //Records run time
   var time2 = new Date()
@@ -110,15 +109,15 @@ function recordingsSchoolBoardDistrict(ids)
     startReadNoCheck(filePath, propertiesId, javaFillTag, sortOptionSheetId, ids);//Call to start the reading
 }
 
-function minutesSchoolBoardDistrict(ids)
-{
-  //The variables that control where the code reads from and writes too
-    const sortOptionSheetId = '13eOp3un5QyEGd7CFpy7aKE5WoznGyeE4jfjrfFiyu4E'; //Spreadsheet that dictates sort method. If not here will default to alphabetical
-    const propertiesId = "schoolBoardMinutes";
-    const filePath = ['District','School Board','Live - Board Minutes']; //The folder path that houses to the Live folder.
-    const javaFillTag = "javaFillMinutes"; // The tag that the code fills in on the webpage
-    startReadNoCheck(filePath, propertiesId, javaFillTag, sortOptionSheetId, ids);//Call to start the reading
-}
+// function minutesSchoolBoardDistrict(ids)
+// {
+//   //The variables that control where the code reads from and writes too
+//     const sortOptionSheetId = '13eOp3un5QyEGd7CFpy7aKE5WoznGyeE4jfjrfFiyu4E'; //Spreadsheet that dictates sort method. If not here will default to alphabetical
+//     const propertiesId = "schoolBoardMinutes";
+//     const filePath = ['District','School Board','Live - Board Minutes']; //The folder path that houses to the Live folder.
+//     const javaFillTag = "javaFillMinutes"; // The tag that the code fills in on the webpage
+//     startReadNoCheck(filePath, propertiesId, javaFillTag, sortOptionSheetId, ids);//Call to start the reading
+// }
 
 function eLearning(ids)
 {

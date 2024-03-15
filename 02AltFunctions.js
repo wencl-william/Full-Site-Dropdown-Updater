@@ -32,15 +32,8 @@ function startReadNoCheck(filePath, propertiesId, javaFillTag, sortOptionSheetId
 
     //This is the Java script that decides whether it is mobile of desktop and displays the returned html code in an
     //Element with the name of: javaFill1234
-      topLogicScript = "document.getElementById('" + javaFillTag + "').innerHTML = '" + html[1] + "';" +
-        "function loadVideoIframe(playingDivId){"+
-         "var playingDiv = document.getElementById('scriptIn'+playingDivId); if(!playingDiv.classList.contains('playing'))"+
-        "{ playingDiv.classList.add('playing'); loadIframe('frame'+playingDivId);}}; function loadIframe(frameID) {" +
-        "var frame = document.getElementById(frameID); frame.src = frame.dataset.src; };function loadAudio(sourceID, filler) {" +
-          "document.getElementById('AudioFill' + sourceID).innerHTML = filler;}"+
-        "$('.playableVideoDiv').on('hidden.bs.collapse', function () { $(this).find('iframe').attr('src', ''); $(this).removeClass('playing');});"+
-        "$('.playableAudioDiv').on('hidden.bs.collapse', function () { $(this).find('audio').trigger('pause'); $(this).removeClass('playing');});"+
-        "$('.collapse').on('shown.bs.collapse',function(event){$(this).siblings('.panel-heading').find('.glyphicon-chevron-down:first').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');event.stopPropagation();}).on('hidden.bs.collapse',function(event){$(this).siblings('.panel-heading').find('.glyphicon-chevron-up:first').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');event.stopPropagation();});";
+      topLogicScript = "document.getElementById('" + javaFillTag + "').innerHTML = '" + html[1] + "';" 
+        
   
   
   

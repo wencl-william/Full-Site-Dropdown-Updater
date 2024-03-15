@@ -64,14 +64,8 @@ function startRead(filePath, propertiesId, javaFillTag, sortOptionSheetId, dropI
     //     "$('.playableVideoDiv').on('hidden.bs.collapse', function () { $(this).find('iframe').attr('src', ''); $(this).removeClass('playing');});"+
     //     "$('.playableAudioDiv').on('hidden.bs.collapse', function () { $(this).find('audio').trigger('pause'); $(this).removeClass('playing');});";
 /*~~~~~THIS IS THE ORIGINAL~~~~~~~~~~~~~~~*/
-  topLogicScript = "document.getElementById('" + javaFillTag + "').innerHTML = '" + html[1] + "';" +
-        "function loadVideoIframe(playingDivId){"+
-         "var playingDiv = document.getElementById('scriptIn'+playingDivId); if(!playingDiv.classList.contains('playing'))"+
-        "{ playingDiv.classList.add('playing'); loadIframe('frame'+playingDivId);}}; function loadIframe(frameID) {" +
-        "var frame = document.getElementById(frameID); frame.src = frame.dataset.src; };"+
-        "$('.playableVideoDiv').on('hidden.bs.collapse', function () { $(this).find('iframe').attr('src', ''); $(this).removeClass('playing');});"+
-        "$('.playableAudioDiv').on('hidden.bs.collapse', function () { $(this).find('audio').trigger('pause'); $(this).removeClass('playing');});"+
-        "$('.collapse').on('shown.bs.collapse',function(event){$(this).siblings('.panel-heading').find('.glyphicon-chevron-down:first').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');event.stopPropagation();}).on('hidden.bs.collapse',function(event){$(this).siblings('.panel-heading').find('.glyphicon-chevron-up:first').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');event.stopPropagation();});";
+  topLogicScript = "document.getElementById('" + javaFillTag + "').innerHTML = '" + html[1] + "';" 
+        
 
   
     // //This searches for and verifies that the file to write the script to exists and then writes the html
@@ -516,19 +510,19 @@ function dropDownPdf(file, ids) {
     file.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.VIEW);
     var htmlDesktop = '<div class="panel panel-default"><div class="panel-heading" onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)" data-parent="#accordion' + ids.accordion +
         '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" ><h4 class="panel-title">' +
-        '<a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
+        '<a data-parent="#accordion' + ids.accordion + '" class="pull-right" data-toggle="collapse"' +
         'href="#scriptIn' + ids.collapse + '" role="button"><span class="glyphicon glyphicon-chevron-down"></span></a><a data-parent="#accordion' + ids.accordion +
-        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></h4></div><div class="collapse panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div>' +
+        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a> <span class="js-button glyphicon glyphicon-fullscreen" onclick="fsPdf(event)"></span></h4></div><div class="collapse panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div>' +
         '<div class="dpdwnFrmCont"><iframe id="frame' + ids.collapse + '" allowfullscreen="" data-src="https://drive.google.com/uc?export=view&id=' + file.getId() +
         '"class="dpdwnIfrm" tabindex="-1"></iframe></div></div></div></div></div>';
 
     var htmlMobile = '<div class="panel panel-default"><div class="panel-heading" onclick="loadIframe(&apos;frame' + ids.collapse + '&apos;)" data-parent="#accordion' + ids.accordion +
         '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" ><h4 class="panel-title">' +
-        '<a data-parent="#accordion' + ids.accordion + '" class="collapsible-item-title-link-icon pull-right" data-toggle="collapse"' +
+        '<a data-parent="#accordion' + ids.accordion + '" class="pull-right" data-toggle="collapse"' +
         'href="#scriptIn' + ids.collapse + '" role="button"><span class="glyphicon glyphicon-chevron-down"></span></a><a data-parent="#accordion' + ids.accordion +
-        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></span><a href="https://drive.google.com/uc?export=view&id=' + file.getId() + '" download  target="_blank" onclick="event.stopPropagation()">' +
+        '" data-toggle="collapse" href="#scriptIn' + ids.collapse + '" class="dropDown">' + file.getName() + '</a></span><a href="https://drive.google.com/uc?export=view&id=' + file.getId() + '" download target="_blank" onclick="event.stopPropagation()">' +
         '<img class="content-download docDownld" alt="Download" src="https://5il.co/lfva"/>' +
-        '</a></h4></div><div class="collapse panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div' +
+        '</a><span class="js-button glyphicon glyphicon-fullscreen" onclick="fsPdf(event)"></span></h4></div><div class="collapse panel-collapse" id="scriptIn' + ids.collapse + '"> <div class="panel-body"><div' +
         '><div class="dpdwnFrmCont">' +
         '<iframe id="frame' + ids.collapse + '" allowfullscreen="" data-src="https://drive.google.com/file/d/' + file.getId() + '/preview" class="dpdwnIfrm" tabindex="-1"></iframe></div></div></div></div></div>';
   
